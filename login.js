@@ -38,7 +38,7 @@ $(function() {
         e.preventDefault()
         var data = {username: $('#form_reg [name=username]').val(), password: $('#form_reg [name=password]').val()}
         $.post('/api/reguser', data, function(res) {
-            if(res.status !== 200) {
+            if(res.status !== 0) {
                 return layer.msg('用户已存在！')
             }
             layer.msg('注册成功！')
@@ -58,7 +58,7 @@ $(function() {
             //快速获取表单中的数据
             data:$(this).serialize(),
             success: function(res) {
-                if(res.status !== 200) {
+                if(res.status !== 0) {
                     return layer.msg('密码或账号错误！')
                 }
                 layer.msg('登录成功！')
